@@ -1,0 +1,54 @@
+﻿@model GelaBahia.Models.Cliente
+
+@{
+    ViewData["Title"] = "Servicoes";
+}
+
+<h1>Servicoes - @Html.DisplayNameFor(model => model.Nome)</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                DiaHora
+            </th>
+            <th>
+                Valor
+            </th>
+            <th>
+                Tipo
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.ServicoID)
+        {
+            <tr>
+                <td>
+                    @item.Nome
+                </td>
+                <td>
+                    @item.DiaHora
+                </td>
+                <td>
+                    @item.Valor
+                </td>
+                <td>
+                    @item.Tipo
+                </td>
+                <td>
+                    @{ var link = "/Servicoes/Delete/" + item.ID;}
+                    <a href=@link>Pay Service</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
